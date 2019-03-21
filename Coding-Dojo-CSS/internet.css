@@ -1,0 +1,204 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Arial;
+	background: linear-gradient(#e5e5e5,#fff);
+}
+
+.header {
+	background: #fff;
+}
+
+.header img {
+	width: 100px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.header h1 {
+	display: inline-block;
+	font-family: Arial;
+	vertical-align: middle;
+	color: #333;
+	font-size: 52px;
+}
+
+.header h2 {
+	background: linear-gradient(#2a699d, #5585ab, #2a699d);
+	padding: 15px;
+	margin: -20px 0 0;
+	font-family: Arial;
+	color: #fff;
+}
+
+.aside {
+	margin: 25px 5px;
+	display: inline-block;
+	width: 200px;
+	vertical-align: top;
+}
+
+.aside h3 {
+	font-size: 16px;
+}
+
+.aside p {
+	font-size: 14px;
+	font-weight: bold;
+	margin: 10px 0;
+}
+
+.aside button {
+	font-size: 16px;
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+	display: block;
+	color: #fff;
+	padding: 10px 15px;
+	margin: 2.5px 5px 0;
+	border-radius: 5px;
+}
+
+.aside hr {
+	margin: 10px 0;
+}
+
+.aside .ad {
+	background-image: url("./imgs/ad_background.png");
+	width: 100%;
+	min-height: 425px;
+}
+
+.aside .ad p {
+	color: #fff;
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.aside .ad img {
+	width: 135px;
+	margin: 0 auto;
+	display: block;
+}
+
+.aside .ad button {
+	display: block;
+	margin: 15px auto;
+	background: linear-gradient(#7ad0de,#40c8de,#7ad0de);
+	border: none;
+	box-shadow: 2px 2px #333;
+}
+
+.content {
+	position: relative;
+	display: inline-block;
+	width: 700px;
+	vertical-align: top;
+	margin: 25px 50px;
+}
+
+.content img {
+	width: 20px;
+	vertical-align: middle;
+}
+
+.content a {
+	text-decoration: none;
+	color: #26669c;
+	vertical-align: middle;
+}
+
+.content .contact {
+	position: absolute;
+	right: 0;
+	display: inline-block;
+	text-align: right;
+}
+
+.content .contact .operation-hours, .content .contact .intl-phone-number {
+	font-size: 11px;
+	color: #333;
+}
+
+.content .contact img, .content .contact .phone-number {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.content .contact img {
+	width: 35px;
+}
+
+.content .contact .phone-number {
+	font-weight: bold;
+	color: #00c0dd;
+	font-size: 20px;
+}
+
+.content hr {
+	margin: 65px 0 15px;
+}
+
+.content h3 {
+	color: #26669c;
+}
+
+.content p {
+	margin: 5px 0;
+}
+
+.content li {
+	margin: 5px 45px;
+}
+
+.content img[alt="Client-Server"] {
+	width: 200px;
+	margin: 20px auto;
+	display: block;
+}
+
+.content .the-big-3-wrapper {
+	border: 5px solid #0087dd;
+	padding: 25px;
+}
+
+.content .the-big-3-wrapper img[alt="HTML-CSS-JS"] {
+	width: 200px;
+	display: inline-block;	
+}
+
+.content .the-big-3-wrapper .the-big-3-text-wrapper {
+	display: inline-block;
+	width: 400px;
+	margin: 15px;
+}
+
+.blue-btn {
+	background: linear-gradient(#6196bf, #2d6ba0);
+}
+
+.orange-btn {
+	background: linear-gradient(#eaa957, #ee7809);
+}
+
+.lt-blue {
+	color: #099aaf;
+}
+
+.dk-blue {
+	color: #26669c;
+}
+
+.red {
+	color: red;
+}
+
+.bold {
+	font-weight: bold;
+}

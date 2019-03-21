@@ -1,0 +1,163 @@
+.header {
+	background: #999;
+	font-family: Comic Sans MS;
+}
+
+.header h1 {
+	padding: 20px;
+	display: inline-block;
+}
+
+.header h2 {
+	position: absolute;
+	right: 0;
+	padding: 35px;
+	display: inline-block;
+	font-family: Arial;
+}
+
+.content {
+	background: purple;
+	text-align: center;
+}
+
+.content .image-wrapper {
+	padding: 20px;
+	width: 600px;
+	display: inline-block;
+}
+
+.content .image-wrapper img {
+	width: 600px;
+	border: 5px solid #999;
+}
+
+.content .about-wrapper {
+	padding: 20px;
+	width: 600px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+}
+
+.content .about-wrapper .about-header {
+	padding: 15px;
+  background-image: linear-gradient(#999, #666, #999);
+}
+
+.content .about-wrapper .about-header h3 {
+	color: #fff;
+	font-family: Arial;
+	margin: 5px;
+}
+
+.content .about-wrapper .about-content {
+	background: #fff;
+}
+
+.content .about-wrapper .about-content p {
+	margin: 0;
+	padding: 20px;
+	font-family: Arial;
+	font-size: 20px;
+}
+
+.content .about-wrapper .about-content a {
+	padding: 20px;
+  line-height: 3.5;
+  color: #000;
+}
+
+.content .portfolio-wrapper .portfolio-item {
+	display: inline-block;
+	width: 29.5%;
+	vertical-align: top;
+	background: #fff;
+	min-height: 755px;
+	margin: 0 0 30px 0;
+}
+
+.content .portfolio-wrapper .portfolio-item .portfolio-item-header {
+	background-image: linear-gradient(#999, #666, #999);
+	text-align: left;
+}
+
+.content .portfolio-wrapper .portfolio-item .portfolio-item-header h3 {
+	font-family: Arial;
+	margin: 0;
+	padding: 10px;
+	color: #fff;
+}
+
+.content .portfolio-wrapper .portfolio-item img {
+	width: 420px;
+}
+
+.content .portfolio-wrapper .portfolio-item .portfolio-item-description {
+	text-align: left;
+	background: #fff;
+	min-height: 200px;
+	font-family: Arial;
+}
+
+.content .portfolio-wrapper .portfolio-item .portfolio-item-description p {
+	margin: 0;
+	padding: 10px;
+}
+
+.content .portfolio-wrapper .portfolio-item .portfolio-item-tech-header {
+	text-align: left;
+  background-image: linear-gradient(#999, #666, #999);
+}
+
+.content .portfolio-wrapper .portfolio-item .portfolio-item-tech-header h4 {
+  font-family: Arial;
+  margin: 0;
+  padding: 10px;
+  color: #fff;	
+}
+
+.content .portfolio-wrapper .portfolio-item .portfolio-item-technologies-wrapper {
+	text-align: center;
+	background: #fff;
+}
+
+.content .portfolio-wrapper .portfolio-item .portfolio-item-technologies-wrapper img {
+	width: 60px;
+	margin: 25px 5px 0 5px;
+}
+
+.content .portfolio-wrapper .portfolio-item button {
+  margin: 15px;
+  padding: 10px;
+  background: teal;
+  border-radius: 10px;
+  border: 2px solid #000;
+  color: #fff;
+  font-weight: bold;
+  font-family: Arial;
+}
+
+footer {
+	background: #999;
+	text-align: center;
+	padding: 10px;
+}
+
+footer p {
+	margin: 0;
+}
+
+footer img {
+	width: 20px;
+	padding: 0 5px;
+}
+
+footer .social-media {
+	margin: 5px;
+}
+
+footer .social-media a {
+	vertical-align: top;
+}
+

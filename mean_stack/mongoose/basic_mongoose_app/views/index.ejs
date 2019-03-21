@@ -1,0 +1,26 @@
+<html>
+	<head></head>
+	<body>
+		<table style="border: 1px solid #000;">
+			<thead>
+				<th>Name</th>
+				<th>Age</th>
+			</thead>
+			<% if (users) { %>
+				<% for (var i=0; i < users.length; i++) { %>
+					<tr>
+						<td><%= users[i].name %></td>
+						<td><%= users[i].age %></td>
+					</tr>
+				<% } %>
+			<% } %>
+		</table>
+		<form action="/users" method="POST">
+			<label for="name">Name</label>
+			<input type="text" name="name">
+			<label for="name">Age</label>
+			<input type="text" name="age">
+			<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>

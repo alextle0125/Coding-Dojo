@@ -1,0 +1,173 @@
+body {
+	background: linear-gradient(#265175 75%, #3674a8);
+	font-family: Helvetica;
+}
+
+.header {
+	padding: 25px 100px;;
+}
+
+.header img {
+	display: inline-block;
+	width: 275px;
+}
+
+.header .search-form-wrapper {
+	display: inline-block;
+	vertical-align: top;
+	position: absolute;
+	right: 100px;
+	top: 15px;
+}
+
+
+.header .search-form-wrapper .text-size {
+	color: #fff;
+	font-size: 12px;
+	margin: 0 0 0 75px;
+}
+
+.header .search-form-wrapper a {
+	color: #d4b200;
+	font-size: 12px;
+}
+
+.header .search-form-wrapper form {
+	background: #444444;
+	padding: 20px 40px;
+	border-radius: 10px;
+	box-shadow: 2px 2px #000;
+	margin: 5px;
+}
+
+.header .search-form-wrapper form input[type="text"] {
+	padding: 7px;
+	text-align: center;
+}
+
+.header .search-form-wrapper form input[type="submit"] {
+	background: #265175;
+	border-radius: 5px;
+	padding: 5px 10px;
+	color: #fff;
+}
+
+.nav {
+	margin: 0 auto;
+	width: 75%;
+	background: #477eab;
+	border-radius: 5px;
+	box-shadow: 2px 2px #000;
+}
+
+.nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+.nav ul li {
+	display: inline-block;
+	padding: 15px 40px;
+}
+
+.nav ul li a {
+	text-decoration: none;
+	color: #fff;
+	font-size: 22px;
+}
+
+.side-nav {
+	text-align: center;
+	padding: 25px 150px;
+	width: 200px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.side-nav li {
+	list-style-type: none;
+	padding: 10px 0 0 0;
+}
+
+.side-nav li .arrows {
+	font-size: 7px;
+	color: #ffd343;
+	vertical-align: middle;
+}
+
+.side-nav li a {
+	color: #fff;
+}
+
+.content {
+	display: inline-block;
+	width: 700px;
+	text-align: center;
+	color: #fff;
+	padding: 25px;
+}
+
+.resources {
+	background: #fff;
+	min-height: 200px;
+	width: 100%;
+	text-align: center;
+}
+
+.resources ul li {
+	list-style-type: square;
+}
+
+.resources a {
+	color: #75a8d3;
+	text-decoration: none;
+}
+
+.resources #getting-started, .resources #applications {
+	display: inline-block;
+	width: 40%;
+	vertical-align: top;
+	border-top: 5px solid #75a8d3;
+	margin: 10px 50px;
+}
+
+.resources #getting-started p, .resources #applications p {
+	margin: 0 auto;
+	width: 70%;
+}
+
+.footer {
+	text-align: center;
+}
+
+.footer ul li {
+	list-style-type: none;
+	display: inline-block;
+	margin: 15px;
+}
+
+.footer ul li a {
+	text-decoration: none;
+	color: #87b9e2;
+}
+
+.footer p {
+	font-size: 11px;
+	color: #87b9e2;
+}
+
+.yellow {
+	color: #ffd343;
+}
+
+.italics {
+	font-style: italic;
+}
+
+.med {
+	font-size: 18px;
+}
+
+.sm {
+	font-size: 14px;
+}

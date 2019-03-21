@@ -1,0 +1,80 @@
+body {
+	background: navy;
+}
+
+header {
+	background: red;
+	padding: 1px;
+	border-radius: 10px;
+	width: 1400px;
+}
+
+header h1 {
+	margin: 20px;
+	color: lightblue;
+}
+
+nav#nav {
+	width: 225px;
+	background: teal;
+	border-radius: 10px;
+	padding: 15px 0 15px 15px;
+	margin: 20px 0;
+	display: inline-block;
+	vertical-align: top;
+}
+
+nav#nav ul li {
+	list-style-type: none;
+}
+
+nav#nav ul ul li {
+	list-style-type: disc;
+}
+
+nav#nav ul ul ul li {
+	list-style-type: circle;
+}
+
+nav#nav ul:first-child {
+	margin: 0;
+	padding: 5px;
+}
+
+nav#nav ul ul {
+	margin: 0;
+	padding: 0 20px;
+}
+    
+nav#nav a {
+	color: lightblue;
+}
+
+section.content {
+	display: inline-block;
+  width: 1090px;
+  background: rgba(0,0,0,0.6);
+  margin: 20px;
+  border-radius: 10px;
+  color: lightblue;
+  padding: 25px;
+}
+
+section.content a {
+	color: teal;
+}
+
+section.content span.code {
+	color: purple;
+}
+
+footer {
+	padding: 10px;
+  background: gray;
+  color: lightblue;
+  border-radius: 20px;
+}
+
+footer a {
+	color: teal;
+}

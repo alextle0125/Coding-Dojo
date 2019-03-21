@@ -1,0 +1,263 @@
+<html>
+	<head>
+		<title>Pacman Demo</title>
+		<style type="text/css">
+			body {
+				background: #000;
+				margin: 0;
+			}
+			div.row div {
+				width: 20px;
+				height: 20px;
+				display: inline-block;
+			}
+			div.brick {
+				background: blue;
+			}
+			div.coin {
+				background: url("img/coin.png") no-repeat center;
+				background-size: 10px 10px;
+			}
+			div.cherry {
+				background: url("img/cherry.png") no-repeat center;
+				background-size: 20px 20px;
+			}
+			div#pacman {
+				background: url("img/pacman.gif") no-repeat center;
+				background-size: cover;
+				width: 20px;
+				height: 20px;
+				position: absolute;
+			}
+			div.pacman-up {
+				-webkit-transform: rotate(-90deg);
+    		-moz-transform: rotate(-90deg);
+    		-ms-transform: rotate(-90deg);
+    		-o-transform: rotate(-90deg);
+    		transform: rotate(-90deg);
+			}
+			div.pacman-right {
+				-webkit-transform: rotate(0deg);
+    		-moz-transform: rotate(0deg);
+    		-ms-transform: rotate(0deg);
+    		-o-transform: rotate(0deg);
+    		transform: rotate(0deg);
+			}
+			div.pacman-down {
+				-webkit-transform: rotate(90deg);
+    		-moz-transform: rotate(90deg);
+    		-ms-transform: rotate(90deg);
+    		-o-transform: rotate(90deg);
+    		transform: rotate(90deg);
+			}
+			div.pacman-left {
+				-webkit-transform: rotate(-180deg);
+    		-moz-transform: rotate(-180deg);
+    		-ms-transform: rotate(-180deg);
+    		-o-transform: rotate(-180deg);
+    		transform: rotate(-180deg);
+			}
+			div#score {
+				border: 1px solid #fff;
+				width: 30px;
+				height: 20px;
+				color: #fff;
+				text-align: center;
+				padding: 7px;
+				position: absolute;
+				top: 10px;
+				left: 510px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="world"></div>
+		<div id="pacman"></div>
+		<div id="score">0</div>
+		<script type="text/javascript">
+			var world = [
+				[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+				[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+				[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+				[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+				[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+				[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+				[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+				[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+				[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+				[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+				[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+				[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+				[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+				[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+			];
+
+			var tilesDict = {
+				0: "empty",
+				1: "brick",
+				2: "coin",
+				3: "cherry"
+			};
+
+			var score = 0;
+
+			var pacman = {
+				x: 1,
+				y: 1
+			};
+
+			function generateTileMap(){
+				var xInit=2,yInit=1,rowLen=world[0].length,colLen=world.length;
+				for(;yInit<colLen;yInit++){				
+					for(;xInit<rowLen;xInit++){
+						if(world[yInit][xInit-1]===0){
+							world[yInit][xInit-1]=Math.floor(Math.random()*3)+1;
+						}
+						if(world[yInit-1][xInit]===0){
+							world[yInit-1][xInit]=Math.floor(Math.random()*3)+1;
+						}
+						if(world[yInit-1][xInit]===0){
+							world[yInit-1][xInit]=Math.floor(Math.random()*3)+1;
+						}
+						if(world[yInit-1][xInit]===0){
+							world[yInit-1][xInit]=Math.floor(Math.random()*3)+1;
+						}
+						if(world[yInit][xInit]===0){
+							world[yInit][xInit]=Math.floor(Math.random()*3)+1;
+						}
+					}
+					xInit=1;
+				}
+				world[1][2]=2;
+				world[2][1]=2;
+				xInit=2,yInit=1;
+				for(;yInit<colLen-1;yInit++){
+					for(;xInit<rowLen-1;xInit++){
+						var adjCoins = 0;
+						if(world[yInit][xInit]===2&&world[yInit-1][xInit]===2){
+							adjCoins++;
+						}
+						if(world[yInit][xInit]===2&&world[yInit][xInit+1]===2){
+							adjCoins++;
+						}
+						if(world[yInit][xInit]===2&&world[yInit+1][xInit]===2){
+							adjCoins++;
+						}
+						if(world[yInit][xInit]===2&&world[yInit][xInit-1]===2){
+							adjCoins++;
+						}
+						if(adjCoins<2){
+							var i=0;
+							for(;i<2;i++){
+								var dir = Math.floor(Math.random()*4)+1;
+								if(dir===1&&yInit-1!==0){
+									world[yInit-1][xInit]=2;
+								} else if (dir===2&&xInit+1!==world[0].length-1){
+									world[yInit][xInit+1]=2;
+								} else if (dir===3&&yInit+1!==world.length-1){
+									world[yInit+1][xInit]=2;
+								} else if (dir===4&&xInit-1!==0){
+									world[yInit][xInit-1]=2;
+								} else {
+									i-=2;
+								}
+							}
+						}
+						if(world[yInit][xInit]===2&&(world[yInit-1][xInit]===1&&world[yInit][xInit+1]===1&&world[yInit+1][xInit]===1&&world[yInit][xInit-1]===1)){
+							var i=0;
+							for(;i<2;i++){
+								var dir = Math.floor(Math.random()*4)+1;
+								if(dir===1&&yInit-1!==0){
+									world[yInit-1][xInit]=2;
+								} else if (dir===2&&xInit+1!==world[0].length-1){
+									world[yInit][xInit+1]=2;
+								} else if (dir===3&&yInit+1!==world.length-1){
+									world[yInit+1][xInit]=2;
+								} else if (dir===4&&xInit-1!==0){
+									world[yInit][xInit-1]=2;
+								} else {
+									i-=2;
+								}
+							}
+						}
+					}
+					xInit=1;
+				}
+				world[1][1]=0;
+			}
+
+			function displayWorld(){
+				var output="",i=0,len=world.length;
+				for(;i<len;i++){
+					var j=0,rowLen=world[i].length;
+					output += "<div class='row'>\n"
+					for(;j<rowLen;j++){
+						output += "<div class='"+tilesDict[world[i][j]]+"'></div>";
+					}
+					output += "</div>"
+				}
+				document.getElementById('world').innerHTML = output;
+			}
+
+			function displayPacman(){
+				document.getElementById('pacman').style.top = pacman.y*20+"px";
+				document.getElementById('pacman').style.left = pacman.x*20+"px";
+			}
+
+			function displayScore(){
+				document.getElementById('score').innerHTML = score;
+			}
+
+			generateTileMap();
+			displayWorld();
+			displayPacman();
+			displayScore();
+
+			document.onkeydown=function(e){
+				if(e.keyCode===37&&world[pacman.y][pacman.x-1]!==1) {
+					var pacmanElement = document.getElementById("pacman");
+					pacmanElement.classList.remove("pacman-right");
+					pacmanElement.classList.remove("pacman-up");
+					pacmanElement.classList.remove("pacman-down");
+  				pacmanElement.classList.add("pacman-left");
+					pacman.x--;
+				} else if(e.keyCode===39&&world[pacman.y][pacman.x+1]!==1){
+					var pacmanElement = document.getElementById("pacman");
+					pacmanElement.classList.remove("pacman-left");
+					pacmanElement.classList.remove("pacman-up");
+					pacmanElement.classList.remove("pacman-down");
+  				pacmanElement.classList.add("pacman-right");
+					pacman.x++;
+				} else if(e.keyCode===38&&world[pacman.y-1][pacman.x]!==1){
+					var pacmanElement = document.getElementById("pacman");
+					pacmanElement.classList.remove("pacman-right");
+					pacmanElement.classList.remove("pacman-left");
+					pacmanElement.classList.remove("pacman-down");
+  				pacmanElement.classList.add("pacman-up");
+					pacman.y--;
+				} else if(e.keyCode===40&&world[pacman.y+1][pacman.x]!== 1){
+					var pacmanElement = document.getElementById("pacman");
+					pacmanElement.classList.remove("pacman-right");
+					pacmanElement.classList.remove("pacman-up");
+					pacmanElement.classList.remove("pacman-left");
+  				pacmanElement.classList.add("pacman-down");
+					pacman.y++;
+				}
+
+				if(world[pacman.y][pacman.x]===2){
+					world[pacman.y][pacman.x]=0;
+					score+=10;
+					displayScore();
+					displayWorld();
+				} else if (world[pacman.y][pacman.x]===3){
+					world[pacman.y][pacman.x]=0;
+					score+=50;
+					displayScore();
+					displayWorld();					
+				}
+
+				displayPacman();
+			}
+		</script>
+	</body>
+</html>
