@@ -1,0 +1,43 @@
+.nav.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background: #343a40;
+}
+
+.nav-item {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 11.1%;
+  
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-flex-flow: column wrap;
+  flex-flow: column wrap;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+
+.nav-link {
+	background: #0093d0;
+	color: #fff;
+	padding: 1rem 2rem;
+	border: none;
+}
+
+.nav-link.active {
+	background: #62bdff;
+}
+
+.nav-link:hover {
+	background: #62bdff;
+}

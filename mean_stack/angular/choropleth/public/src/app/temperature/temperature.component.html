@@ -1,0 +1,15 @@
+<div id="map"></div>
+<div class="ref">
+	<a href="https://wonder.cdc.gov/nasa-nldas.html" target="popup">U.S. Department of Health & Human Services - Centers for Disease Control and Prevention</a>
+</div>
+<ul class="nav bg-dark footer">
+  <li class="nav-item">
+    <button id="min-air" class="nav-link active" (click)="changeMetric('min-air')">Avg Daily Min Air Temperature (F)</button>
+  </li>
+  <li class="nav-item">
+    <button id="max-air" class="nav-link" (click)="changeMetric('max-air')">Avg Daily Max Air Temperature (F)</button>
+  </li>
+  <li class="nav-item">
+    <button id="max-heat" class="nav-link" (click)="changeMetric('max-heat')">Avg Daily Max Heat Index (F)</button>
+  </li>
+</ul>

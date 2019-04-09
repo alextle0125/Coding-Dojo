@@ -1,0 +1,60 @@
+#map {
+	background: #333;
+}
+
+.bg-custom {
+	background: #0093d0;
+}
+
+.site-title {
+	font-family: 'Milkshake';
+	color: #fff;
+	padding: 0 1rem;
+}
+
+.nav-item {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 15.54%;
+  
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-flex-flow: column wrap;
+  flex-flow: column wrap;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+
+.nav-link {
+	background: #0093d0;
+	color: #fff;
+	padding: 1rem 1rem;
+	border: none;
+}
+
+.nav-link.active {
+	background: #62bdff;
+}
+
+.nav-link:hover {
+	background: #62bdff;
+}
+
+#map {
+	width: 100%;
+}
+
+@font-face {
+  font-family: 'Milkshake';
+  src: url('../assets/fonts/Milkshake.ttf')  format('truetype'), 
+  	   url('../assets/fonts/Milkshake.otf') format('opentype')
+}

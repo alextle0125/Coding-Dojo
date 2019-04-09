@@ -1,0 +1,20 @@
+<ul class="nav bg-custom">
+  <h1 class="site-title">Choropleth Survey</h1>
+  <li class="nav-item">
+    <button id="home-nav" class="nav-link" [routerLink]="['/']">Home</button>
+  </li>
+  <li class="nav-item">
+    <button id="temperature-nav" class="nav-link" [routerLink]="['/temperature']">Temperature</button>
+  </li>
+  <li class="nav-item">
+    <button id="teen-birth-nav" class="nav-link" [routerLink]="['/teen-birth']">Teen Birth</button>
+  </li>
+  <li class="nav-item">
+    <button id="drug-mortality-nav" class="nav-link" [routerLink]="['/drug-mortality']">Drug-Related Mortalities</button>
+  </li>
+  <li class="nav-item">
+    <button id="unemployment-nav" class="nav-link" [routerLink]="['/unemployment']">Unemployment</button>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
