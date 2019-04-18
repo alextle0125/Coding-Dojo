@@ -1,0 +1,14 @@
+@model Wedding
+
+<h1>@($"{@Model.Partner1} and {@Model.Partner2}\'s Wedding")</h1>
+
+<h3>Date: @Model.Date</h3>
+
+<h4>Guests:</h4>
+
+<ul>
+@foreach(var rsvp in @Model.Rsvps)
+{
+	<li>@rsvp.User.FirstName @rsvp.User.LastName</li>
+}
+</ul>

@@ -1,0 +1,60 @@
+@using WeddingPlanner.Models;
+
+<h1>Welcome to the Wedding Planner</h1>
+
+<table class="table">
+	<thead class="thead-dark">
+		<tr>
+			<th>Wedding</th>
+			<th>Date</th>
+			<th>Num. of Guests</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+	@if(@ViewBag.Weddings.Count > 0)
+	{
+		@foreach(var wedding in @ViewBag.Weddings)
+		{
+			var rsvps = (IEnumerable<Rsvp>)@wedding.Rsvps;
+			<tr>
+				<td><a href="/weddings/@wedding.WeddingId">@wedding.Partner1 &#38; @wedding.Partner2</a></td>
+				<td>@wedding.Date</td>
+				@if(@wedding.Rsvps.Count > 0)
+				{
+					<td>@wedding.Rsvps.Count</td>
+				}
+				else
+				{
+					<td>0</td>
+				}
+				@if(@wedding.UserId == @ViewBag.CurrUserId)
+				{
+					<td>
+						<form action="/weddings/@wedding.WeddingId/cancel">
+    						<input type="submit" value="Cancel Wedding" />
+						</form>
+					</td>
+				}
+				else if(rsvps.Any(r => r.UserId == @ViewBag.CurrUserId))
+				{
+					<td>
+						<form action="/weddings/@wedding.WeddingId/unrsvp">
+    						<input type="submit" value="Un-RSVP" />
+						</form>
+					</td>					
+				}
+				else 
+				{
+					<td>
+						<form action="/weddings/@wedding.WeddingId/rsvp">
+    						<input type="submit" value="RSVP" />
+						</form>
+					</td>
+				}
+			</tr>
+		}	
+	}
+	</tbody>
+</table>
+<a href="/weddings/new">New Wedding</a>
