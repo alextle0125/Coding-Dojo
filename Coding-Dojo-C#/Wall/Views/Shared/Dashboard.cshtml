@@ -1,0 +1,49 @@
+@using Wall.Models;
+
+<partial name="PostMessageFormPartial" />
+
+@foreach(var message in @ViewBag.AllMessages)
+{
+	<div id="message-@message.MessageId" class="message-container">
+		<h3 class="message-criteria">@message.User.FirstName @message.User.LastName</h3>
+		<h5 class="message-criteria">@message.CreatedAt</h5>
+		<p class="message-criteria">@message.Content</p>
+
+		@if(@message.UserId == @ViewBag.CurrUserId)
+		{
+			<button id="message-@message.MessageId" class="edit-button">Edit</button>
+			<form action="/Message/@message.MessageId/Delete">
+				<input type="submit" value="Delete" />
+			</form>
+		}
+		@if(@message.Comments.Count > 0){
+			<ul>
+				@foreach(var comment in @message.Comments)
+				{
+					<li>
+						<h3>@comment.User.FirstName @comment.User.LastName</h3>
+						<h5>@comment.CreatedAt</h5>
+						<p>@comment.Content</p>
+					</li>
+				}
+			</ul>
+		}
+		<h1>Post a Comment</h1>
+
+		@model Comment
+		<form asp-action="PostComment" asp-controller="Message" method="post">
+			<input type="hidden" name="messageId" value="@message.MessageId" />
+
+		    <span asp-validation-for="Content"></span>
+		    <textarea asp-for="Content"></textarea>
+
+		   	<br>
+		    
+		    <input value="Create" type="submit">    
+		</form>
+	</div>
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/editMessageHandler.js" asp-append-version="true"></script>
+

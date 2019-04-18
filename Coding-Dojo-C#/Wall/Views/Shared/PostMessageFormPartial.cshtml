@@ -1,0 +1,11 @@
+<h1>Post a message</h1>
+
+@model Message
+<form asp-action="PostMessage" asp-controller="Message" method="post">
+    <span asp-validation-for="Content"></span>
+    <textarea asp-for="Content"></textarea>
+
+   	<br>
+    
+    <input value="Create" type="submit">    
+</form>
